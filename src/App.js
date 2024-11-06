@@ -1,7 +1,10 @@
+import { CodingPlatform } from './components';
 
 function App() {
   return (
-    <div className="App">hi</div>
+    <div>
+      <CodingPlatform />
+    </div>
   );
 }
 
