@@ -1,28 +1,14 @@
 import React, { useState } from 'react';
-import { ProblemStatement, TestCases, CodeEditor } from './index';
+import { ProblemStatement, CodeEditor } from './index';
 import axios from 'axios';
 
 const CodingPlatform = () => {
   const [output, setOutput] = useState('');
 
-  // Placeholder function to simulate code execution
   const executeCode = async (code) => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/executeCode', { code });
       console.log(response)
-      setOutput(response.data.output);
-    } catch (error) {
-      setOutput(`Error: ${error.message}`);
-    }
-  };
-
-  const runTestCase = async (input) => {
-    const code = `def solution():\n    pass`; // Assume code is retrieved from editor
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/runTestCase', {
-        code,
-        test_input: input,
-      });
       setOutput(response.data.output);
     } catch (error) {
       setOutput(`Error: ${error.message}`);
@@ -40,9 +26,6 @@ const CodingPlatform = () => {
           <h3>Output Console</h3>
           <pre>{output}</pre>
         </div>
-      </div>
-      <div style={{ flex: '1' }}>
-        <TestCases runTestCase={runTestCase} />
       </div>
     </div>
   );
