@@ -25,22 +25,22 @@ const CodingPlatform = () => {
       });
       
       const newHint = response.data.hint;
-      setPreviousHints([...previousHints, newHint]);  // Append the new hint to the array
+      setPreviousHints([...previousHints, newHint]);
     } catch (error) {
       setPreviousHints([...previousHints, `Error: ${error.message}`]);
     }
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <div style={{ flex: '1' }}>
+    <div className="coding-platform">
+      <div className="coding-platform__panel--problem-statement">
         <ProblemStatement />
       </div>
-      <div style={{ flex: '3' }}>
+      <div className="coding-platform__panel--code-editor">
         <CodeEditor executeCode={executeCode} getHint={getHint} />
         <OutputConsole output={output} />
       </div>
-      <div style={{ flex: '1' }}>
+      <div className="coding-platform__panel--hints-display">
         <HintDisplay hints={previousHints} />
       </div>
     </div>

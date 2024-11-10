@@ -6,3 +6,111 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* Root Variables for Consistency */
+:root {
+  --accent-color: #FEA116;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --border-color: #e0e0e0;
+  --secondary-color: #ffffff;
+}
+
+/* General Reset and Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Main Container */
+.coding-platform {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Panel: Problem Statement */
+.coding-platform__panel--problem-statement {
+  flex: 1;
+  padding: 16px;
+  background-color: var(--secondary-color);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+}
+
+/* Center Panel: Code Editor and Output Console */
+.coding-platform__panel--code-editor {
+  flex: 3;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.code-editor {
+  flex: 1;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 8px;
+  background-color: var(--background-color);
+}
+
+.output-console {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+/* Right Panel: Hints Display */
+.coding-platform__panel--hints-display {
+  flex: 1;
+  padding: 16px;
+  background-color: var(--secondary-color);
+  overflow-y: auto;
+}
+
+/* Hint Item Styling */
+.hint-display__item {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Buttons */
+.button {
+  padding: 8px 16px;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e6950e;
+}
+
+
+
+
+
+
+
+
+
