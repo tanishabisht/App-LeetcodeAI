@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProblemStatement, CodeEditor } from './index';
+import { ProblemStatement, CodeEditor, OutputConsole, TestCases, HintDisplay } from './components';
 import axios from 'axios';
 
 const CodingPlatform = () => {
@@ -38,16 +38,10 @@ const CodingPlatform = () => {
       </div>
       <div style={{ flex: '3' }}>
         <CodeEditor executeCode={executeCode} getHint={getHint} />
-        <div style={{ padding: '10px', background: '#f5f5f5', marginTop: '10px', height: '100px', overflowY: 'auto' }}>
-          <h3>Output Console</h3>
-          <pre>{output}</pre>
-        </div>
-        <div style={{ padding: '10px', background: '#f5f5f5', marginTop: '10px', maxHeight: '200px', overflowY: 'auto' }}>
-          <h3>Hints</h3>
-          {previousHints.map((hint, index) => (
-            <p key={index}><strong>Hint {index + 1}:</strong> {hint}</p>
-          ))}
-        </div>
+        <OutputConsole output={output} />
+      </div>
+      <div style={{ flex: '1' }}>
+        <HintDisplay hints={previousHints} />
       </div>
     </div>
   );

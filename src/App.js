@@ -1,9 +1,9 @@
-import { CodingPlatform } from './components';
+import MainPage from './mainPage';
 
 function App() {
   return (
     <div>
-      <CodingPlatform />
+      <MainPage />
     </div>
   );
 }
