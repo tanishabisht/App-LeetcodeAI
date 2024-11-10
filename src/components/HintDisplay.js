@@ -2,10 +2,12 @@ import React from 'react';
 
 const HintsDisplay = ({ hints }) => {
   return (
-    <div style={{ padding: '10px', background: '#e8f4fc', marginTop: '10px', maxHeight: '200px', overflowY: 'auto' }}>
-      <h3>Hints</h3>
+    <div className="hints-display">
+      <h3 className="hints-display__title">Hints</h3>
       {hints.map((hint, index) => (
-        <p key={index}><strong>Hint {index + 1}:</strong> {hint}</p>
+        <p key={index} className="hints-display__hint">
+          <strong>Hint {index + 1}:</strong> {hint}
+        </p>
       ))}
     </div>
   );
