@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { ProblemStatement, CodeEditor } from './index';
-import { problemStatement1 } from '../constant'
 import axios from 'axios';
 
 const CodingPlatform = () => {
   const [output, setOutput] = useState('');
-  const [hint, setHint] = useState('');
+  const [previousHints, setPreviousHints] = useState([]);
 
   const executeCode = async (code) => {
     try {
@@ -19,14 +18,16 @@ const CodingPlatform = () => {
   const getHint = async (code) => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/getHint', {
-        problem_statement: JSON.stringify(problemStatement1),
+        problem_statement: "Maximum Sum of Contiguous Subarray",
         user_code: code,
         hint_type: "optimization",
-        previous_hints: []
+        previous_hints: previousHints
       });
-      setHint(response.data.hint);
+      
+      const newHint = response.data.hint;
+      setPreviousHints([...previousHints, newHint]);  // Append the new hint to the array
     } catch (error) {
-      setHint(`Error: ${error.message}`);
+      setPreviousHints([...previousHints, `Error: ${error.message}`]);
     }
   };
 
@@ -41,9 +42,11 @@ const CodingPlatform = () => {
           <h3>Output Console</h3>
           <pre>{output}</pre>
         </div>
-        <div style={{ padding: '10px', background: '#f5f5f5', marginTop: '10px', height: '100px', overflowY: 'auto' }}>
-          <h3>Hint</h3>
-          <pre>{hint}</pre>
+        <div style={{ padding: '10px', background: '#f5f5f5', marginTop: '10px', maxHeight: '200px', overflowY: 'auto' }}>
+          <h3>Hints</h3>
+          {previousHints.map((hint, index) => (
+            <p key={index}><strong>Hint {index + 1}:</strong> {hint}</p>
+          ))}
         </div>
       </div>
     </div>
