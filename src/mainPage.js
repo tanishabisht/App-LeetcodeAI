@@ -8,7 +8,7 @@ const CodingPlatform = () => {
 
   const executeCode = async (code) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/executeCode', { code });
+      const response = await axios.post('https://printed-eryn-github-deployments-1ba07664.koyeb.app/executeCode', { code });
       setOutput(response.data.output);
     } catch (error) {
       setOutput(`Error: ${error.message}`);
@@ -17,7 +17,7 @@ const CodingPlatform = () => {
 
   const getHint = async (code) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/getHint', {
+      const response = await axios.post('https://printed-eryn-github-deployments-1ba07664.koyeb.app/getHint', {
         problem_statement: "Maximum Sum of Contiguous Subarray",
         user_code: code,
         hint_type: "optimization",
