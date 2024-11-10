@@ -14,18 +14,19 @@ const CodeEditor = ({ executeCode, getHint }) => {
   };
 
   return (
-    <div style={{ padding: '10px', overflowY: 'auto' }}>
-      <h2>Code Editor</h2>
+    <div className="code-editor">
+      <h2 className="code-editor__title">Code Editor</h2>
       <CodeMirror
         value={code}
         height="400px"
         extensions={[python()]}
         onChange={(value) => setCode(value)}
         placeholder="Write your Python code here..."
+        className="code-editor__codemirror"
       />
-      <div style={{ marginTop: '10px' }}>
-        <button onClick={handleRun} style={{ padding: '10px', marginRight: '10px' }}>Run Code</button>
-        <button onClick={handleGetHint} style={{ padding: '10px' }}>Get Hint</button>
+      <div className="code-editor__button-group">
+        <button onClick={handleRun} className="code-editor__button">Run Code</button>
+        <button onClick={handleGetHint} className="code-editor__button">Get Hint</button>
       </div>
     </div>
   );

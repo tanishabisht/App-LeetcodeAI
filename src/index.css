@@ -57,7 +57,6 @@ body {
 
 .code-editor {
   flex: 1;
-  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 8px;
   background-color: var(--background-color);
@@ -176,4 +175,46 @@ body {
 .problem-statement__example p {
   margin: 4px 0;
   color: #333;
+}
+
+/* CodeEditor */
+.code-editor {
+  padding: 16px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.code-editor__title {
+  font-size: 1.5em;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.code-editor__codemirror {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  height: 400px;
+}
+
+.code-editor__button-group {
+  margin-top: 16px;
+}
+
+.code-editor__button {
+  padding: 10px 16px;
+  margin-right: 10px;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.code-editor__button:last-child {
+  margin-right: 0;
+}
+
+.code-editor__button:hover {
+  background-color: #e6950e;
 }
