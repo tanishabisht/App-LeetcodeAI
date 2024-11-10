@@ -114,3 +114,66 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Problem Statment .js */
+.problem-statement {
+  padding: 16px;
+  border-right: 1px solid #e0e0e0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.problem-statement__title {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+  color: var(--accent-color);
+}
+
+.problem-statement__difficulty,
+.problem-statement__description,
+.problem-statement__constraints-heading,
+.problem-statement__examples-heading {
+  font-weight: bold;
+  margin-top: 16px;
+  color: #333;
+}
+
+.problem-statement__constraints-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #333;
+}
+
+.problem-statement__example {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.problem-statement__example-title {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.problem-statement__example p {
+  margin: 4px 0;
+  color: #333;
+}
