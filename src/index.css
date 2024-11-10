@@ -218,3 +218,36 @@ body {
 .code-editor__button:hover {
   background-color: #e6950e;
 }
+
+
+
+
+
+
+
+
+
+
+/* CodeEditor */
+
+.output-console {
+  padding: 16px;
+  background-color: #f5f5f5;
+  margin-top: 16px;
+  max-height: 100px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.output-console__title {
+  font-size: 1.25em;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.output-console__text {
+  font-family: monospace;
+  color: #333;
+  white-space: pre-wrap;
+}
