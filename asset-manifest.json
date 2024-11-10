@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/App-LeetcodeAI/static/css/main.5bcaf0ba.css",
-    "main.js": "/App-LeetcodeAI/static/js/main.2f00509d.js",
+    "main.js": "/App-LeetcodeAI/static/js/main.fdbdc1ba.js",
     "index.html": "/App-LeetcodeAI/index.html",
     "main.5bcaf0ba.css.map": "/App-LeetcodeAI/static/css/main.5bcaf0ba.css.map",
-    "main.2f00509d.js.map": "/App-LeetcodeAI/static/js/main.2f00509d.js.map"
+    "main.fdbdc1ba.js.map": "/App-LeetcodeAI/static/js/main.fdbdc1ba.js.map"
   },
   "entrypoints": [
     "static/css/main.5bcaf0ba.css",
-    "static/js/main.2f00509d.js"
+    "static/js/main.fdbdc1ba.js"
   ]
 }
