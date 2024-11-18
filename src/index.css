@@ -286,3 +286,97 @@ body {
 .hints-display__hint strong {
   color: #333;
 }
+
+
+
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  color: #fff;
+}
+
+.navbar-cta {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar-cta:hover {
+  background-color: #fff;
+  color: #B5BEBD;
+}
+
+/* landing page */
+
+.landing-container {
+  font-family: Arial, sans-serif;
+  background-color: #B5BEBD;
+  min-height: 100vh;
+  color: #3A5D59;
+}
+
+/* Main Content */
+.landing-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.hero-img {
+  width: 15rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+}
+
+.hero-cta {
+  background-color: transparent;
+  color: #3A5D59;
+  border: 2px solid #3A5D59;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+.hero-cta:hover {
+  background-color: #3A5D59;
+  color: #fff;
+}
+
+.feature-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-icon {
+  margin: 1rem;
+  width: 15rem;
+}

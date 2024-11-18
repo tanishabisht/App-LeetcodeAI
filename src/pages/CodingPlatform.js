@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProblemStatement, CodeEditor, OutputConsole, TestCases, HintDisplay } from './components';
+import { ProblemStatement, CodeEditor, OutputConsole, HintDisplay } from '../components';
 import axios from 'axios';
 
 const CodingPlatform = () => {
