@@ -3,8 +3,15 @@ import { Navbar } from '../components'
 import mainImg from '../images/main.png'
 import featureHintImg from '../images/feature-hint.png'
 import featureUiImg from '../images/feature-ui.png'
+import { useNavigate } from 'react-router-dom';
 
 const Landing = () => {
+  const navigate = useNavigate()
+
+  const startCoding = () => {
+    navigate('/problems')
+  }
+
   return (
     <div className="landing-container">
 
@@ -16,7 +23,7 @@ const Landing = () => {
           <img src={mainImg} alt='hero' className='hero-img' />
           <div className='hero-content'>
             <h2 className='hero-title'>Optimize your coding skills <br/>with smart progressive hints</h2>
-            <button className="hero-cta">Start Coding</button>
+            <button className="hero-cta" onClick={startCoding}>Start Coding</button>
           </div>
         </div>
 

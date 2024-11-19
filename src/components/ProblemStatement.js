@@ -1,7 +1,10 @@
 import React from 'react';
-import { problemStatement1 as problemData } from '../constant';
 
-const ProblemStatement = () => {
+const ProblemStatement = ({ problemData }) => {
+  if (!problemData) {
+    return <div>Problem data is not available.</div>;
+  }
+
   return (
     <div className="problem-statement">
       <h2 className="problem-statement__title">{problemData.title}</h2>
