@@ -10,7 +10,7 @@ body {
 
 /* Root Variables for Consistency */
 :root {
-  --accent-color: #FEA116;
+  --accent-color: #3A5D59;
   --background-color: #f9f9f9;
   --text-color: #333;
   --border-color: #e0e0e0;
@@ -272,7 +272,7 @@ body {
 .hints-display__title {
   font-size: 1.25em;
   margin-bottom: 8px;
-  color: #FEA116;
+  color: #3A5D59;
 }
 
 .hints-display__hint {
