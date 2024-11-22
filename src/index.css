@@ -77,6 +77,9 @@ body {
   padding: 16px;
   background-color: var(--secondary-color);
   overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 /* Hint Item Styling */
@@ -102,12 +105,8 @@ body {
 }
 
 .button:hover {
-  background-color: #e6950e;
+  background-color: #153431;
 }
-
-
-
-
 
 
 
@@ -216,7 +215,7 @@ body {
 }
 
 .code-editor__button:hover {
-  background-color: #e6950e;
+  background-color: #153431;
 }
 
 

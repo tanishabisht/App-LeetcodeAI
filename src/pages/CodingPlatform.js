@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { ProblemStatement, CodeEditor, OutputConsole, HintDisplay } from '../components';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { problems } from '../constant';
 
 const CodingPlatform = () => {
+  const navigate = useNavigate()
   const { id } = useParams();
   const problem = problems.find((problem) => problem.id === id);
 
   const [output, setOutput] = useState('');
   const [previousHints, setPreviousHints] = useState([]);
+
+  const goBack = () => {
+    navigate('/problems')
+  }
 
   const executeCode = async (code) => {
     try {
@@ -56,6 +61,7 @@ const CodingPlatform = () => {
       </div>
       <div className="coding-platform__panel--hints-display">
         <HintDisplay hints={previousHints} />
+        <button onClick={goBack} className='button'>Back</button>
       </div>
     </div>
   );
