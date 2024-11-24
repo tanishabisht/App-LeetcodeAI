@@ -8,9 +8,13 @@ const Navbar = () => {
     navigate('/problems')
   }
 
+  const goLandingPage = () => {
+    navigate('/')
+  }
+
   return (
     <header className="navbar">
-        <h1 className='navbar-logo'>Leetcode AI</h1>
+        <h1 onClick={goLandingPage} className='navbar-logo'>Leetcode AI</h1>
         <button className="navbar-cta" onClick={startCoding}>Start Coding</button>
     </header>
   )
