@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/App-LeetcodeAI/static/css/main.a8be60a6.css",
-    "main.js": "/App-LeetcodeAI/static/js/main.fdbdc1ba.js",
+    "main.css": "/App-LeetcodeAI/static/css/main.abfbf777.css",
+    "main.js": "/App-LeetcodeAI/static/js/main.cc0f863d.js",
+    "static/media/main.png": "/App-LeetcodeAI/static/media/main.6828d40695a68f972ef7.png",
+    "static/media/feature-ui.png": "/App-LeetcodeAI/static/media/feature-ui.b3bd647b83202c1f7dfb.png",
+    "static/media/feature-hint.png": "/App-LeetcodeAI/static/media/feature-hint.c5fef7cb9f757ce08989.png",
     "index.html": "/App-LeetcodeAI/index.html",
-    "main.a8be60a6.css.map": "/App-LeetcodeAI/static/css/main.a8be60a6.css.map",
-    "main.fdbdc1ba.js.map": "/App-LeetcodeAI/static/js/main.fdbdc1ba.js.map"
+    "main.abfbf777.css.map": "/App-LeetcodeAI/static/css/main.abfbf777.css.map",
+    "main.cc0f863d.js.map": "/App-LeetcodeAI/static/js/main.cc0f863d.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8be60a6.css",
-    "static/js/main.fdbdc1ba.js"
+    "static/css/main.abfbf777.css",
+    "static/js/main.cc0f863d.js"
   ]
 }
