@@ -18,7 +18,7 @@ const CodingPlatform = () => {
 
   const executeCode = async (code) => {
     try {
-      const response = await axios.post('https://printed-eryn-github-deployments-1ba07664.koyeb.app/executeCode', { code });
+      const response = await axios.post('https://leetcode-ai-b8e9a24e7b72.herokuapp.com/executeCode', { code });
       setOutput(response.data.output);
     } catch (error) {
       setOutput(`Error: ${error.message}`);
@@ -27,8 +27,9 @@ const CodingPlatform = () => {
 
   const getHint = async (code) => {
     try {
-      const response = await axios.post('https://printed-eryn-github-deployments-1ba07664.koyeb.app/getHint', {
-        problem_statement: problem?.title || '',
+      console.log(problem.title, code, previousHints)
+      const response = await axios.post('https://leetcode-ai-b8e9a24e7b72.herokuapp.com/getHint', {
+        problem_statement: problem.title,
         user_code: code,
         hint_type: "optimization",
         previous_hints: previousHints
