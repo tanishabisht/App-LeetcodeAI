@@ -1,6 +1,7 @@
 import React from 'react';
-import { ChevronRight, Star, Book, Users, Code, GitBranch, Brain } from 'lucide-react';
+import { Users, Code, GitBranch, Brain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Navbar } from '../components'
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -11,21 +12,9 @@ const LandingPage = () => {
 
   return (
     <div className="landing-container">
-      {/* Navigation remains the same */}
-      <nav className="nav">
-        <div className="nav-content">
-          <div className="nav-brand">
-            <span className="nav-logo">codepath</span>
-            <span className="nav-beta">beta</span>
-          </div>
-          <div>
-            <button className="nav-cta-secondary">My Notes</button>
-            <button className="nav-cta" onClick={startCoding}>Start Learning</button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Updated Hero Section */}
+      <Navbar />
+      
+      {/* HERO SECTION */}
       <section className="hero">
         <div className="hero-background">
           <div className="hero-blob hero-blob-1"></div>
@@ -57,7 +46,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Updated Community Section */}
+      {/* COMMUNITY SECTION */}
       <section className="community">
         <div className="community-content">
           <div className="community-grid">
@@ -84,7 +73,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Updated Features Section */}
+      {/* FEATURES SECTION */}
       <section className="features">
         <div className="features-content">
           <h2 className="features-title">Why CodePath?</h2>

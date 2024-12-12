@@ -13,10 +13,18 @@ const Navbar = () => {
   }
 
   return (
-    <header className="navbar">
-        <h1 onClick={goLandingPage} className='navbar-logo'>Leetcode AI</h1>
-        <button className="navbar-cta" onClick={startCoding}>Start Coding</button>
-    </header>
+    <nav className="nav">
+      <div className="nav-content">
+        <div className="nav-brand" onClick={goLandingPage}>
+          <span className="nav-logo">codepath</span>
+          <span className="nav-beta">beta</span>
+        </div>
+        <div>
+          <button className="nav-cta-secondary">My Notes</button>
+          <button className="nav-cta" onClick={startCoding}>Start Learning</button>
+        </div>
+      </div>
+    </nav>
   )
 }
 
