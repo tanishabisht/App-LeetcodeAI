@@ -1,7 +1,9 @@
+// LandingPage.js
+
 import React from 'react';
 import { Users, Code, GitBranch, Brain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Navbar } from '../components'
+import { Navbar } from '../../components'
 
 const LandingPage = () => {
   const navigate = useNavigate();

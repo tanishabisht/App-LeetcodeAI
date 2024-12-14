@@ -1,7 +1,9 @@
+// CodingPlatform.js
+
 import React, { useState } from 'react';
-import { ChevronRight, ArrowLeft, Play, Zap, Brain, Code2, MessageSquare, Lightbulb } from 'lucide-react';
-import styles from './CodingPlatform.module.css';
-import { Navbar } from '../components'
+import { ChevronRight, Zap, Brain, Code2, Lightbulb } from 'lucide-react';
+import styles from './CodingPlatformPage.module.css';
+import { Navbar } from '../../components'
 
 const CodingPlatform = () => {
   const [activePanel, setActivePanel] = useState(null);

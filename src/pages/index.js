@@ -1,4 +1,4 @@
-export {default as CodingPlatform} from './CodingPlatform'
-export {default as Landing} from './Landing'
-export {default as Problems} from './Problems'
-export {default as NotesPage} from './NotesPage'
+export { default as LandingPage } from './LandingPage/LandingPage'
+export { default as ProblemsPage } from './ProblemsPage/ProblemsPage'
+export { default as CodingPlatformPage } from './CodingPlatform/CodingPlatformPage'
+export { default as NotesPage } from './NotesPage/NotesPage'

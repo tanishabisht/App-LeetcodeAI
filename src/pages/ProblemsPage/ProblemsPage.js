@@ -1,8 +1,10 @@
+// Problems.js
+
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Circle, CheckCircle, FileText } from 'lucide-react';
+import { ChevronDown, ChevronRight, Circle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Navbar } from '../components';
-import { topics } from '../constant'
+import { Navbar } from '../../components';
+import { topics } from '../../constant'
 
 const TopicsPage = () => {
   const [expandedTopic, setExpandedTopic] = useState('arrays');

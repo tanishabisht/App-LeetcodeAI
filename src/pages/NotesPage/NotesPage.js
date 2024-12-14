@@ -1,7 +1,9 @@
+// NotesPage.js
+
 import React, { useState } from 'react';
-import { Search, Filter, ArrowLeft, ChevronDown, Code2, Clock, Cpu, BookOpen } from 'lucide-react';
+import { Search, Filter, ChevronDown, Code2, Clock, Cpu, BookOpen } from 'lucide-react';
 import styles from './NotesPage.module.css';
-import { Navbar } from '../components';
+import { Navbar } from '../../components';
 
 const NotesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
