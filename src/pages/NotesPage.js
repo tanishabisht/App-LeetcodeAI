@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Filter, ArrowLeft, ChevronDown, Code2, Clock, Cpu, BookOpen } from 'lucide-react';
+import styles from './NotesPage.module.css';
 import { Navbar } from '../components';
 
 const NotesPage = () => {
@@ -23,60 +24,73 @@ const NotesPage = () => {
       logic: "Store complements in hash map. For each number, check if its complement exists.",
       tags: ["Hash Table", "Arrays"],
       difficulty: "Easy"
-    }
+    },
   ];
 
+  const getDifficultyClass = (difficulty) => {
+    const baseClass = styles.badge;
+    switch(difficulty) {
+      case 'Easy':
+        return `${baseClass} ${styles.badgeEasy}`;
+      case 'Medium':
+        return `${baseClass} ${styles.badgeMedium}`;
+      case 'Hard':
+        return `${baseClass} ${styles.badgeHard}`;
+      default:
+        return baseClass;
+    }
+  };
+
   return (
-    <div className="notes-container">
-        
+    <div className={styles.container}>
       <Navbar />
 
-      <main className="notes-main">
-        <div className="main-content">
+      <main className={styles.main}>
+        <div className={styles.content}>
           {/* Search and Filters */}
-          <div className="search-container">
-            <div className="search-wrapper">
-              <div className="search-box">
-                <Search className="search-icon" />
+          <div className={styles.searchContainer}>
+            <div className={styles.searchWrapper}>
+              <div className={styles.searchInputWrapper}>
+                <Search className={styles.searchIcon} />
                 <input
                   type="text"
                   placeholder="Search problems or approaches..."
-                  className="search-input"
+                  className={styles.searchInput}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-              <button className="filter-button">
-                <Filter className="filter-icon" />
+              <button className={styles.filterButton}>
+                <Filter className={styles.filterIcon} />
                 Filter
-                <ChevronDown className="chevron-icon" />
+                <ChevronDown className={styles.chevronIcon} />
               </button>
             </div>
           </div>
 
           {/* Notes Table */}
-          <div className="table-container">
-            <div className="table-wrapper">
-              <table className="notes-table">
+          <div className={styles.tableContainer}>
+            <div className={styles.tableWrapper}>
+              <table className={styles.table}>
                 <thead>
-                  <tr className="table-header">
-                    <th className="header-cell">Problem Name</th>
-                    <th className="header-cell">Approach</th>
-                    <th className="header-cell">
-                      <div className="header-content">
-                        <Clock className="header-icon" />
+                  <tr className={styles.tableHeader}>
+                    <th className={styles.tableHeaderCell}>Problem Name</th>
+                    <th className={styles.tableHeaderCell}>Approach</th>
+                    <th className={styles.tableHeaderCell}>
+                      <div className={styles.headerWithIcon}>
+                        <Clock className={styles.headerIcon} />
                         Time
                       </div>
                     </th>
-                    <th className="header-cell">
-                      <div className="header-content">
-                        <Cpu className="header-icon" />
+                    <th className={styles.tableHeaderCell}>
+                      <div className={styles.headerWithIcon}>
+                        <Cpu className={styles.headerIcon} />
                         Space
                       </div>
                     </th>
-                    <th className="header-cell">
-                      <div className="header-content">
-                        <BookOpen className="header-icon" />
+                    <th className={styles.tableHeaderCell}>
+                      <div className={styles.headerWithIcon}>
+                        <BookOpen className={styles.headerIcon} />
                         Approach Logic
                       </div>
                     </th>
@@ -84,36 +98,36 @@ const NotesPage = () => {
                 </thead>
                 <tbody>
                   {notes.map((note, index) => (
-                    <tr key={index} className="table-row">
-                      <td className="table-cell">
-                        <div className="problem-info">
-                          <div className="problem-name">{note.problemName}</div>
-                          <div className="tag-container">
-                            <span className={`difficulty-tag difficulty-${note.difficulty.toLowerCase()}`}>
+                    <tr key={index} className={styles.tableRow}>
+                      <td className={styles.tableCell}>
+                        <div className={styles.problemInfo}>
+                          <div className={styles.problemName}>{note.problemName}</div>
+                          <div className={styles.tagContainer}>
+                            <span className={getDifficultyClass(note.difficulty)}>
                               {note.difficulty}
                             </span>
                             {note.tags.map((tag, i) => (
-                              <span key={i} className="topic-tag">
+                              <span key={i} className={`${styles.badge} ${styles.badgeTag}`}>
                                 {tag}
                               </span>
                             ))}
                           </div>
                         </div>
                       </td>
-                      <td className="table-cell">
-                        <div className="approach-info">
-                          <Code2 className="approach-icon" />
+                      <td className={styles.tableCell}>
+                        <div className={styles.approachWrapper}>
+                          <Code2 className={styles.approachIcon} />
                           {note.approach}
                         </div>
                       </td>
-                      <td className="table-cell complexity-cell">
+                      <td className={styles.complexityCell}>
                         {note.timeComplexity}
                       </td>
-                      <td className="table-cell complexity-cell">
+                      <td className={styles.complexityCell}>
                         {note.spaceComplexity}
                       </td>
-                      <td className="table-cell">
-                        <p className="approach-logic">{note.logic}</p>
+                      <td className={styles.tableCell}>
+                        <p className={styles.logicText}>{note.logic}</p>
                       </td>
                     </tr>
                   ))}
