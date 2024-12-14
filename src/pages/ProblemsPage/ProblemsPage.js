@@ -1,12 +1,11 @@
-// Problems.js
-
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, Circle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../../components';
-import { topics } from '../../constant'
+import { topics } from '../../constant';
+import styles from './ProblemsPage.module.css';
 
-const TopicsPage = () => {
+const ProblemsPage = () => {
   const [expandedTopic, setExpandedTopic] = useState('arrays');
   const navigate = useNavigate();
 
@@ -20,67 +19,67 @@ const TopicsPage = () => {
 
   const getStatusIcon = (status) => {
     return status === 'solved' ? 
-      <CheckCircle className="status-icon status-solved" /> : 
-      <Circle className="status-icon status-unsolved" />;
+      <CheckCircle className={styles.statusSolved} /> : 
+      <Circle className={styles.statusUnsolved} />;
   };
 
   return (
-    <div className="topics-container">
+    <div className={styles.container}>
       <Navbar />
 
-      <main className="topics-main">
+      <main className={styles.main}>
         {/* Overall Progress */}
-        <div className="progress-card">
-          <div className="progress-header">
-            <div className="progress-info">
-              <h2 className="progress-title">Main Progress</h2>
-              <p className="progress-stats">
+        <div className={styles.progressCard}>
+          <div className={styles.progressHeader}>
+            <div className={styles.progressInfo}>
+              <h2 className={styles.progressTitle}>Main Progress</h2>
+              <p className={styles.progressStats}>
                 Total problems solved: {totalSolved}/{totalProblems}
               </p>
             </div>
-            <div className="topics-mastered">
+            <div className={styles.topicsMastered}>
               Topics Mastered: <span>4</span>
             </div>
           </div>
-          <div className="progress-bar">
+          <div className={styles.progressBar}>
             <div 
-              className="progress-fill"
+              className={styles.progressFill}
               style={{ width: `${progressPercentage}%` }}
             ></div>
           </div>
         </div>
 
         {/* Topics List */}
-        <div className="topics-list">
+        <div className={styles.topicsList}>
           {topics.map((topic) => (
-            <div key={topic.id} className="topic-card">
+            <div key={topic.id} className={styles.topicCard}>
               <button 
                 onClick={() => setExpandedTopic(expandedTopic === topic.id ? null : topic.id)}
-                className="topic-header"
+                className={styles.topicHeader}
               >
-                <div className="topic-main">
+                <div className={styles.topicMain}>
                   {expandedTopic === topic.id ? 
-                    <ChevronDown className="topic-icon" /> : 
-                    <ChevronRight className="topic-icon" />
+                    <ChevronDown className={styles.topicIcon} /> : 
+                    <ChevronRight className={styles.topicIcon} />
                   }
-                  <div className="topic-info">
-                    <h2 className="topic-title">{topic.title}</h2>
-                    <p className="topic-description">{topic.description}</p>
+                  <div className={styles.topicInfo}>
+                    <h2 className={styles.topicTitle}>{topic.title}</h2>
+                    <p className={styles.topicDescription}>{topic.description}</p>
                   </div>
                 </div>
-                <div className="topic-stats">
-                  <div className="topic-progress">
-                    <CheckCircle className="progress-icon" />
+                <div className={styles.topicStats}>
+                  <div className={styles.topicProgress}>
+                    <CheckCircle className={styles.progressIcon} />
                     <span>{topic.solved}/{topic.problemCount}</span>
                   </div>
-                  <div className="difficulty-badges">
-                    <span className="badge badge-easy">
+                  <div className={styles.difficultyBadges}>
+                    <span className={styles.badgeEasy}>
                       {topic.difficulty.easy} Easy
                     </span>
-                    <span className="badge badge-medium">
+                    <span className={styles.badgeMedium}>
                       {topic.difficulty.medium} Medium
                     </span>
-                    <span className="badge badge-hard">
+                    <span className={styles.badgeHard}>
                       {topic.difficulty.hard} Hard
                     </span>
                   </div>
@@ -89,29 +88,29 @@ const TopicsPage = () => {
 
               {/* Expanded Content - Problem List */}
               {expandedTopic === topic.id && (
-                <div className="topic-content">
-                    {topic.problems.map((problem) => (
-                      <div key={problem.id} className="problem-card">
-                        <div className="problem-info">
-                          {getStatusIcon(problem.status)}
-                          <div className="problem-details">
-                            <h4 className="problem-title">{problem.title}</h4>
-                            <p className="problem-description">
-                              {problem.description}
-                            </p>
-                          </div>
-                          <span className={`badge badge-${problem.difficulty}`}>
-                            {problem.difficulty}
-                          </span>
+                <div className={styles.topicContent}>
+                  {topic.problems.map((problem) => (
+                    <div key={problem.id} className={styles.problemCard}>
+                      <div className={styles.problemInfo}>
+                        {getStatusIcon(problem.status)}
+                        <div className={styles.problemDetails}>
+                          <h4 className={styles.problemTitle}>{problem.title}</h4>
+                          <p className={styles.problemDescription}>
+                            {problem.description}
+                          </p>
                         </div>
-                        <button 
-                          className="solve-button"
-                          onClick={() => onSolve(problem.id)}
-                        >
-                          {problem.status === 'solved' ? 'Review' : 'Solve'}
-                        </button>
+                        <span className={styles[`badge${problem.difficulty.charAt(0).toUpperCase() + problem.difficulty.slice(1)}`]}>
+                          {problem.difficulty}
+                        </span>
                       </div>
-                    ))}
+                      <button 
+                        className={styles.solveButton}
+                        onClick={() => onSolve(problem.id)}
+                      >
+                        {problem.status === 'solved' ? 'Review' : 'Solve'}
+                      </button>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -122,4 +121,4 @@ const TopicsPage = () => {
   );
 };
 
-export default TopicsPage;
+export default ProblemsPage;

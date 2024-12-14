@@ -1,0 +1,246 @@
+/* ##################### */
+/* ### PROBLEMS PAGE ### */
+/* ##################### */
+
+/* Main Container */
+.container {
+    min-height: 100vh;
+    background-color: #fff1f2;
+}
+
+/* Main Content */
+.main {
+    padding: 8rem 1.5rem 5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Progress Card */
+.progressCard {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.progressHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.progressTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.progressStats {
+    color: #475569;
+}
+
+.topicsMastered span {
+    font-weight: 700;
+    color: #8b5cf6;
+}
+
+.progressBar {
+    width: 100%;
+    height: 0.5rem;
+    background-color: #f1f5f9;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background-color: #10b981;
+    border-radius: 9999px;
+    transition: width 0.5s ease;
+}
+
+/* Topics List */
+.topicsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.topicCard {
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.topicHeader {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.topicHeader:hover {
+    background-color: #f8fafc;
+}
+
+.topicMain {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topicIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #94a3b8;
+}
+
+.topicTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: left;
+}
+
+.topicDescription {
+    font-size: 0.875rem;
+    color: #475569;
+}
+
+.topicStats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.topicProgress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #475569;
+}
+
+.progressIcon {
+    width: 1rem;
+    height: 1rem;
+    color: #10b981;
+}
+
+/* Badges */
+.difficultyBadges {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+}
+
+.badgeEasy {
+    composes: badge;
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.badgeMedium {
+    composes: badge;
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.badgeHard {
+    composes: badge;
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+/* Problem Cards */
+.topicContent {
+    border-top: 1px solid #f1f5f9;
+    padding: 1rem 1.5rem;
+}
+
+.contentTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.problemCard {
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.problemCard:hover {
+    background-color: #f1f5f9;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.problemInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.statusIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #cbd5e1;
+}
+
+.statusSolved {
+    composes: statusIcon;
+    color: #10b981;
+}
+
+.statusUnsolved {
+    composes: statusIcon;
+    color: #cbd5e1;
+}
+
+.problemDetails {
+    flex: 1;
+}
+
+.problemTitle {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.problemDescription {
+    font-size: 0.875rem;
+    color: #475569;
+}
+
+.solveButton {
+    padding: 0.5rem 1rem;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 5rem;
+    text-align: center;
+}
+
+.solveButton:hover {
+    background-color: #4f46e5;
+}
