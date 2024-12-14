@@ -1,28 +1,51 @@
-// ProblemsPage.js
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight, Circle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../../components';
-import { topics } from '../../constant';
 import styles from './ProblemsPage.module.css';
 
 const ProblemsPage = () => {
-  const [expandedTopic, setExpandedTopic] = useState('arrays');
+  const [expandedTopic, setExpandedTopic] = useState(null);
+  const [topics, setTopics] = useState([]);
+  const [stats, setStats] = useState({});
   const navigate = useNavigate();
 
-  const totalSolved = topics.reduce((acc, topic) => acc + topic.solved, 0);
-  const totalProblems = topics.reduce((acc, topic) => acc + topic.problemCount, 0);
-  const progressPercentage = (totalSolved / totalProblems) * 100;
+  useEffect(() => {
+    const fetchTopics = async () => {
+      const response = await fetch('http://localhost:3001/topics');
+      const data = await response.json();
+      setTopics(data);
 
-  const onSolve = (problemId) => {
-    navigate('/coding/' + problemId);
-  };
+      // Calculate derived statistics
+      const totalProblems = data.reduce((acc, topic) => acc + topic.problems.length, 0);
+      const totalSolved = data.reduce((acc, topic) => 
+        acc + topic.problems.filter(problem => problem.status === 'solved').length, 0);
+      const difficultyStats = data.reduce((acc, topic) => {
+        topic.problems.forEach(problem => {
+          acc[problem.difficulty] = (acc[problem.difficulty] || 0) + 1;
+        });
+        return acc;
+      }, {});
+
+      setStats({
+        totalProblems,
+        totalSolved,
+        progress: (totalSolved / totalProblems) * 100,
+        ...difficultyStats
+      });
+    };
+
+    fetchTopics();
+  }, []);
 
   const getStatusIcon = (status) => {
     return status === 'solved' ? 
       <CheckCircle className={styles.statusSolved} /> : 
       <Circle className={styles.statusUnsolved} />;
+  };
+
+  const onSolve = (problemId) => {
+    navigate('/coding/' + problemId);
   };
 
   return (
@@ -36,17 +59,18 @@ const ProblemsPage = () => {
             <div className={styles.progressInfo}>
               <h2 className={styles.progressTitle}>Main Progress</h2>
               <p className={styles.progressStats}>
-                Total problems solved: {totalSolved}/{totalProblems}
+                Total problems solved: {stats.totalSolved}/{stats.totalProblems}
               </p>
             </div>
             <div className={styles.topicsMastered}>
-              Topics Mastered: <span>4</span>
+              Topics Mastered: {topics.filter(topic => 
+                topic.problems.every(problem => problem.status === 'solved')).length}
             </div>
           </div>
           <div className={styles.progressBar}>
             <div 
               className={styles.progressFill}
-              style={{ width: `${progressPercentage}%` }}
+              style={{ width: `${stats.progress || 0}%` }}
             ></div>
           </div>
         </div>
@@ -72,19 +96,8 @@ const ProblemsPage = () => {
                 <div className={styles.topicStats}>
                   <div className={styles.topicProgress}>
                     <CheckCircle className={styles.progressIcon} />
-                    <span>{topic.solved}/{topic.problemCount}</span>
+                    <span>{topic.problems.filter(p => p.status === 'solved').length}/{topic.problems.length}</span>
                   </div>
-                  {/* <div className={styles.difficultyBadges}>
-                    <span className={styles.badgeEasy}>
-                      {topic.difficulty.easy} Easy
-                    </span>
-                    <span className={styles.badgeMedium}>
-                      {topic.difficulty.medium} Medium
-                    </span>
-                    <span className={styles.badgeHard}>
-                      {topic.difficulty.hard} Hard
-                    </span>
-                  </div> */}
                 </div>
               </button>
 
