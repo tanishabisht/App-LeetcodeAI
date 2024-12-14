@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { Landing, Problems, CodingPlatform } from './pages';
+import { Landing, Problems, CodingPlatform, NotesPage } from './pages';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/problems" element={<Problems />} />
+          <Route path="/notes" element={<NotesPage />} />
           <Route path="/coding/:id" element={<CodingPlatform />} />
         </Routes>
       </div>

@@ -8,6 +8,10 @@ const Navbar = () => {
     navigate('/problems')
   }
 
+  const seeNotes = () => {
+    navigate('/notes')
+  }
+
   const goLandingPage = () => {
     navigate('/')
   }
@@ -20,7 +24,7 @@ const Navbar = () => {
           <span className="nav-beta">beta</span>
         </div>
         <div>
-          <button className="nav-cta-secondary">My Notes</button>
+          <button className="nav-cta-secondary" onClick={seeNotes}>My Notes</button>
           <button className="nav-cta" onClick={startCoding}>Start Learning</button>
         </div>
       </div>

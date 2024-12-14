@@ -10,6 +10,10 @@ const LandingPage = () => {
     navigate('/problems');
   };
 
+  const seeNotes = () => {
+    navigate('/notes')
+  }
+
   return (
     <div className="landing-container">
       <Navbar />
@@ -38,7 +42,7 @@ const LandingPage = () => {
               <button className="button-primary" onClick={startCoding}>
                 Start Your Journey
               </button>
-              <button className="button-secondary">
+              <button className="button-secondary" onClick={seeNotes}>
                 See your notes
               </button>
             </div>
