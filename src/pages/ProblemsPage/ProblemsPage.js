@@ -1,3 +1,5 @@
+// ProblemsPage.js
+
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, Circle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -72,7 +74,7 @@ const ProblemsPage = () => {
                     <CheckCircle className={styles.progressIcon} />
                     <span>{topic.solved}/{topic.problemCount}</span>
                   </div>
-                  <div className={styles.difficultyBadges}>
+                  {/* <div className={styles.difficultyBadges}>
                     <span className={styles.badgeEasy}>
                       {topic.difficulty.easy} Easy
                     </span>
@@ -82,7 +84,7 @@ const ProblemsPage = () => {
                     <span className={styles.badgeHard}>
                       {topic.difficulty.hard} Hard
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </button>
 

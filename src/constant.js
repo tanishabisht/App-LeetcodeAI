@@ -4,9 +4,6 @@ export const topics = [
     id: 'arrays',
     title: 'Arrays & Hashing',
     description: 'Master fundamental array manipulation and hashing techniques',
-    problemCount: 30,
-    solved: 12,
-    difficulty: { easy: 15, medium: 10, hard: 5 },
     problems: [
       {
         id: 'two-sum',
@@ -42,9 +39,6 @@ export const topics = [
     id: 'two-pointers',
     title: 'Two Pointers',
     description: 'Learn to solve problems using the two-pointer technique',
-    problemCount: 20,
-    solved: 8,
-    difficulty: { easy: 8, medium: 8, hard: 4 },
     problems: [
       {
         id: 'valid-palindrome',

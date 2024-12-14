@@ -1,3 +1,5 @@
+// LandingPage.js
+
 import React from 'react';
 import { Users, Code, GitBranch, Brain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
