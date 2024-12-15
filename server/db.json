@@ -8,65 +8,214 @@
                 {
                     "id": "two-sum",
                     "title": "Two Sum",
-                    "description": "Find two numbers that add up to target",
+                    "description": "Find two numbers that add up to the target.",
                     "difficulty": "easy",
-                    "status": "solved"
+                    "status": "solved",
+                    "constraints": [
+                        "1 ≤ len(arr) ≤ 10^5",
+                        "-10^4 ≤ arr[i] ≤ 10^4"
+                    ],
+                    "examples": [
+                        {
+                            "example": 1,
+                            "input": "arr = [2, 7, 11, 15], target = 9",
+                            "output": "[0, 1]",
+                            "explanation": "Numbers at indices 0 and 1 add up to 9."
+                        },
+                        {
+                            "example": 2,
+                            "input": "arr = [3, 2, 4], target = 6",
+                            "output": "[1, 2]",
+                            "explanation": "Numbers at indices 1 and 2 add up to 6."
+                        }
+                    ],
+                    "approaches": [
+                        {
+                            "name": "Brute Force Approach",
+                            "steps": [
+                                "Use two nested loops to check every pair of numbers.",
+                                "Return indices if their sum equals the target."
+                            ],
+                            "complexity": {
+                                "time": "O(n^2)",
+                                "space": "O(1)"
+                            }
+                        },
+                        {
+                            "name": "Hash Map Approach",
+                            "steps": [
+                                "Create a hash map to store numbers and their indices.",
+                                "Iterate through the array and check if the complement (target - current number) exists in the map.",
+                                "If found, return indices of the current number and the complement."
+                            ],
+                            "complexity": {
+                                "time": "O(n)",
+                                "space": "O(n)"
+                            }
+                        }
+                    ]
                 },
                 {
                     "id": "contains-duplicate",
                     "title": "Contains Duplicate",
-                    "description": "Find if array contains any duplicates",
+                    "description": "Find if the array contains any duplicates.",
                     "difficulty": "easy",
-                    "status": "solved"
+                    "status": "solved",
+                    "constraints": [
+                        "1 ≤ len(arr) ≤ 10^5",
+                        "-10^9 ≤ arr[i] ≤ 10^9"
+                    ],
+                    "examples": [
+                        {
+                            "example": 1,
+                            "input": "arr = [1, 2, 3, 1]",
+                            "output": "true",
+                            "explanation": "1 appears twice in the array."
+                        },
+                        {
+                            "example": 2,
+                            "input": "arr = [1, 2, 3, 4]",
+                            "output": "false",
+                            "explanation": "All elements are distinct."
+                        }
+                    ],
+                    "approaches": [
+                        {
+                            "name": "Hash Set Approach",
+                            "steps": [
+                                "Iterate through the array, adding elements to a hash set.",
+                                "If an element is already in the set, return true.",
+                                "Return false if no duplicates are found."
+                            ],
+                            "complexity": {
+                                "time": "O(n)",
+                                "space": "O(n)"
+                            }
+                        },
+                        {
+                            "name": "Sorting Approach",
+                            "steps": [
+                                "Sort the array.",
+                                "Iterate through the sorted array and check if any two adjacent elements are equal.",
+                                "Return true if duplicates are found; otherwise, return false."
+                            ],
+                            "complexity": {
+                                "time": "O(n log n)",
+                                "space": "O(1)"
+                            }
+                        }
+                    ]
                 },
                 {
                     "id": "group-anagrams",
                     "title": "Group Anagrams",
-                    "description": "Group strings that are anagrams of each other",
+                    "description": "Group strings that are anagrams of each other.",
                     "difficulty": "medium",
-                    "status": "solved"
-                },
-                {
-                    "id": "top-k-frequent",
-                    "title": "Top K Frequent Elements",
-                    "description": "Find k most frequent elements in array",
-                    "difficulty": "medium",
-                    "status": "solved"
+                    "status": "solved",
+                    "constraints": [
+                        "1 ≤ len(strs) ≤ 10^4",
+                        "0 ≤ len(str) ≤ 100"
+                    ],
+                    "examples": [
+                        {
+                            "example": 1,
+                            "input": "strs = [\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]",
+                            "output": "[[\"eat\", \"tea\", \"ate\"], [\"tan\", \"nat\"], [\"bat\"]]",
+                            "explanation": "Anagrams are grouped together."
+                        }
+                    ],
+                    "approaches": [
+                        {
+                            "name": "Hash Map Approach",
+                            "steps": [
+                                "Create a hash map where the key is the sorted string and the value is a list of anagrams.",
+                                "Iterate through the array and group words by their sorted key.",
+                                "Return the values of the hash map."
+                            ],
+                            "complexity": {
+                                "time": "O(n * k log k)",
+                                "space": "O(n * k)"
+                            }
+                        }
+                    ]
                 }
             ]
         },
         {
             "id": "two-pointers",
             "title": "Two Pointers",
-            "description": "Learn to solve problems using the two-pointer technique",
+            "description": "Learn to solve problems using the two-pointer technique.",
             "problems": [
                 {
                     "id": "valid-palindrome",
                     "title": "Valid Palindrome",
-                    "description": "Check if string is palindrome after converting to lowercase and removing non-alphanumeric characters",
+                    "description": "Check if a string is a palindrome after converting to lowercase and removing non-alphanumeric characters.",
                     "difficulty": "easy",
-                    "status": "solved"
+                    "status": "solved",
+                    "constraints": [
+                        "1 ≤ len(s) ≤ 2 * 10^5"
+                    ],
+                    "examples": [
+                        {
+                            "example": 1,
+                            "input": "s = 'A man, a plan, a canal: Panama'",
+                            "output": "true",
+                            "explanation": "The string is a palindrome after removing non-alphanumerics."
+                        },
+                        {
+                            "example": 2,
+                            "input": "s = 'race a car'",
+                            "output": "false",
+                            "explanation": "The string is not a palindrome."
+                        }
+                    ],
+                    "approaches": [
+                        {
+                            "name": "Two Pointer Approach",
+                            "steps": [
+                                "Initialize two pointers at the beginning and end of the string.",
+                                "Skip non-alphanumeric characters.",
+                                "Compare characters at both pointers and move them inward until they meet."
+                            ],
+                            "complexity": {
+                                "time": "O(n)",
+                                "space": "O(1)"
+                            }
+                        }
+                    ]
                 },
                 {
                     "id": "container-with-water",
                     "title": "Container With Most Water",
-                    "description": "Find two lines that together with x-axis forms a container that holds the most water",
+                    "description": "Find two lines that together with the x-axis form a container that holds the most water.",
                     "difficulty": "medium",
-                    "status": "unsolved"
-                },
-                {
-                    "id": "remove-duplicates",
-                    "title": "Remove Duplicates",
-                    "description": "Remove duplicates from sorted array in-place",
-                    "difficulty": "easy",
-                    "status": "unsolved"
-                },
-                {
-                    "id": "three-sum",
-                    "title": "Three Sum",
-                    "description": "Find all unique triplets that sum to zero",
-                    "difficulty": "medium",
-                    "status": "solved"
+                    "status": "unsolved",
+                    "constraints": [
+                        "2 ≤ len(height) ≤ 10^5",
+                        "0 ≤ height[i] ≤ 10^4"
+                    ],
+                    "examples": [
+                        {
+                            "example": 1,
+                            "input": "height = [1,8,6,2,5,4,8,3,7]",
+                            "output": "49",
+                            "explanation": "The container formed by lines at indices 1 and 8 contains 49 units of water."
+                        }
+                    ],
+                    "approaches": [
+                        {
+                            "name": "Two Pointer Approach",
+                            "steps": [
+                                "Initialize two pointers at the start and end of the array.",
+                                "Calculate the water contained between the two lines and update the maximum.",
+                                "Move the pointer with the smaller height inward."
+                            ],
+                            "complexity": {
+                                "time": "O(n)",
+                                "space": "O(1)"
+                            }
+                        }
+                    ]
                 }
             ]
         }

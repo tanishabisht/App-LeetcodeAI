@@ -44,8 +44,8 @@ const ProblemsPage = () => {
       <Circle className={styles.statusUnsolved} />;
   };
 
-  const onSolve = (problemId) => {
-    navigate('/coding/' + problemId);
+  const onSolve = (topicId, problemId) => {
+    navigate('/coding/' + topicId + '/' + problemId);
   };
 
   return (
@@ -120,7 +120,7 @@ const ProblemsPage = () => {
                       </div>
                       <button 
                         className={styles.solveButton}
-                        onClick={() => onSolve(problem.id)}
+                        onClick={() => onSolve(topic.id, problem.id)}
                       >
                         {problem.status === 'solved' ? 'Review' : 'Solve'}
                       </button>
