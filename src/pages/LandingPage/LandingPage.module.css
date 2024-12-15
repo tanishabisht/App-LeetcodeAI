@@ -136,7 +136,7 @@
 }
 
 .heroText {
-    max-width: 42rem;
+    max-width: 50rem;
 }
 
 .heroTitle {
@@ -153,13 +153,13 @@
 
 .heroTitleDecoration {
     position: absolute;
-    bottom: 0.5rem;
-    left: 0;
-    width: 100%;
+    bottom: 0rem;
+    left: 7rem;
+    width: 10rem;
     height: 1rem;
     background-color: #ddd6fe;
-    transform: rotate(-1deg);
-    z-index: -1;
+    transform: rotate(-3deg);
+    z-index: 0;
 }
 
 .heroDescription {
@@ -223,7 +223,7 @@
 .communityGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
 }
 
@@ -231,11 +231,8 @@
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.communityImage img {
     width: 100%;
-    height: 100%;
+    height: 40rem;
     object-fit: cover;
 }
 
