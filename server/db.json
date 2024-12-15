@@ -122,7 +122,7 @@
           "title": "Valid Palindrome",
           "description": "Check if a string is a palindrome after converting to lowercase and removing non-alphanumeric characters.",
           "difficulty": "easy",
-          "status": "unsolved",
+          "status": "solved",
           "constraints": [
             "1 ≤ len(s) ≤ 2 * 10^5"
           ],
@@ -201,7 +201,8 @@
       "spaceComplexity": "O(1)",
       "logic": "one liner logic",
       "difficulty": "medium",
-      "userNote": "this is the note written by the user"
+      "userNote": "this is the note written by the user",
+      "id": "b84c"
     },
     {
       "id": "9518",
@@ -212,6 +213,16 @@
       "logic": "Check every pair of elements to see if their sum equals the target.",
       "difficulty": "easy",
       "userNote": "pls add this to the notes"
+    },
+    {
+      "id": "28f0",
+      "problemName": "Valid Palindrome",
+      "approach": "Two Pointer Approach",
+      "timeComplexity": "O(n)",
+      "spaceComplexity": "O(1)",
+      "logic": "Compare characters from both ends while ignoring non-alphanumerics.",
+      "difficulty": "easy",
+      "userNote": "sdfsdfd"
     }
   ]
 }

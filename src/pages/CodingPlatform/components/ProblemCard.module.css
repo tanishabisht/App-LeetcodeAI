@@ -1,0 +1,112 @@
+.card {
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.cardHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    margin: 0;
+}
+
+.difficultyBadge {
+    background-color: #dcfce7;
+    color: #15803d;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.cardContent {
+    padding: 1.5rem;
+}
+
+.description {
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.section {
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.constraintsList {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    color: #4b5563;
+}
+
+.constraintItem {
+    margin-top: 0.25rem;
+}
+
+.constraintItem:first-child {
+    margin-top: 0;
+}
+
+.exampleBox {
+    background-color: #f9fafb;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0.75rem;
+}
+
+.exampleBox:last-child {
+    margin-bottom: 0;
+}
+
+.codeText {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.explanationText {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* Hover states */
+.card:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Focus states for accessibility */
+.card:focus-within {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .cardHeader {
+    padding: 1rem;
+    }
+
+    .cardContent {
+    padding: 1rem;
+    }
+    
+    .title {
+    font-size: 1.125rem;
+    }
+}
