@@ -210,6 +210,7 @@
                                 "Calculate the water contained between the two lines and update the maximum.",
                                 "Move the pointer with the smaller height inward."
                             ],
+                            "logic": "one liner logic",
                             "complexity": {
                                 "time": "O(n)",
                                 "space": "O(1)"
@@ -218,6 +219,26 @@
                     ]
                 }
             ]
+        }
+    ],
+    "notes": [
+        {
+            "problemName": "Container With Most Water",
+            "approach": "Two Pointer Approach",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(1)",
+            "logic": "one liner logic",
+            "difficulty": "Medium",
+            "userNote": "this is the note written by the user"
+        },
+        {
+            "problemName": "Container With Most Water",
+            "approach": "Two Pointer Approach",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(1)",
+            "logic": "one liner logic",
+            "difficulty": "Medium",
+            "userNote": "this is the note written by the user"
         }
     ]
 }
