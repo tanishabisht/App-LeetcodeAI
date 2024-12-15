@@ -42,21 +42,6 @@ const NotesPage = () => {
 
       <main className={styles.main}>
         <div className={styles.content}>
-          {/* Search and Filters */}
-          {/* <div className={styles.searchContainer}>
-            <div className={styles.searchWrapper}>
-              <div className={styles.searchInputWrapper}>
-                <Search className={styles.searchIcon} />
-                <input
-                  type="text"
-                  placeholder="Search problems or approaches..."
-                  className={styles.searchInput}
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
-            </div>
-          </div> */}
 
           {/* Notes Table */}
           <div className={styles.tableContainer}>
