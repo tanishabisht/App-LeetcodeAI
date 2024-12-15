@@ -1,3 +1,5 @@
+// ProblemsPage.js
+
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight, Circle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +46,7 @@ const ProblemsPage = () => {
       <Circle className={styles.statusUnsolved} />;
   };
 
-  const onSolve = (topicId, problemId) => {
+  const handleOnSolve = (topicId, problemId) => {
     navigate('/coding/' + topicId + '/' + problemId);
   };
 
@@ -63,8 +65,8 @@ const ProblemsPage = () => {
               </p>
             </div>
             <div className={styles.topicsMastered}>
-              Topics Mastered: {topics.filter(topic => 
-                topic.problems.every(problem => problem.status === 'solved')).length}
+              Topics Mastered: 
+              {topics.filter(topic => topic.problems.every(problem => problem.status === 'solved')).length}
             </div>
           </div>
           <div className={styles.progressBar}>
@@ -120,7 +122,7 @@ const ProblemsPage = () => {
                       </div>
                       <button 
                         className={styles.solveButton}
-                        onClick={() => onSolve(topic.id, problem.id)}
+                        onClick={() => handleOnSolve(topic.id, problem.id)}
                       >
                         {problem.status === 'solved' ? 'Review' : 'Solve'}
                       </button>

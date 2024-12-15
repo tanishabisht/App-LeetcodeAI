@@ -53,7 +53,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-
       {/* COMMUNITY SECTION */}
       <section className={styles.community}>
         <div className={styles.communityContent}>
@@ -81,6 +80,7 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* FEATURES SECTION */}
       <section className={styles.features}>
         <div className={styles.featuresContent}>
           <h2 className={styles.featuresTitle}>Why CodePath?</h2>

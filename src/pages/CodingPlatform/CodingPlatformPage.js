@@ -1,4 +1,4 @@
-// NEW CodingPlatformPage.js
+// CodingPlatformPage.js
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { ChevronRight, Zap, Brain, Code2, Lightbulb } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 import styles from './CodingPlatformPage.module.css';
-import { Navbar, HintDisplay } from '../../components';
+import { Navbar } from '../../components';
 import axios from 'axios'
 
 const CodingPlatform = () => {
@@ -43,6 +43,10 @@ const CodingPlatform = () => {
       setPreviousHints([...previousHints, `Error: ${error.message}`]);
     }
   };
+
+  const handleMarkComplete = () => {
+    console.log('hahaha')
+  }
 
   useEffect(() => {
     const fetchProblem = async () => {
@@ -163,6 +167,7 @@ const CodingPlatform = () => {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.mainContent}>
+
           {/* Left Panel - Problem Details */}
           <div className={styles.leftPanel}>
             <div className={styles.problemCard}>
@@ -210,6 +215,13 @@ const CodingPlatform = () => {
               View Approaches
               <ChevronRight className="text-slate-400" />
             </button>
+
+            <button
+              onClick={() => handleMarkComplete()}
+              className={styles.approachButton}
+            >
+              Mark as Complete
+            </button>
           </div>
 
           {/* Editor Section */}
@@ -228,7 +240,6 @@ const CodingPlatform = () => {
               className={styles.codeArea}
             />
 
-            {/* <textarea placeholder="Write your code here..."></textarea> */}
             <div className={styles.editorFooter}>
 
               <div className={styles.outputSection}>
@@ -250,6 +261,7 @@ const CodingPlatform = () => {
 
           {/* Right Panel - Hints/Approaches */}
           <div className={styles.infoPanel}>{renderInfoPanel()}</div>
+
         </div>
       </main>
     </div>
