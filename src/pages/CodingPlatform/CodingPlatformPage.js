@@ -6,7 +6,7 @@ import { ChevronRight, Zap, Brain, Code2, Lightbulb } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
 import { python } from '@codemirror/lang-python';
 import styles from './CodingPlatformPage.module.css';
-import { Navbar } from '../../components';
+import { Navbar, HintDisplay } from '../../components';
 import axios from 'axios'
 
 const CodingPlatform = () => {
@@ -28,27 +28,20 @@ const CodingPlatform = () => {
     }
   };
 
-  // const getHint = async (code) => {
-  //   try {
-  //     console.log(problem.title, code, previousHints)
-  //     const response = await axios.post('https://leetcode-ai-b8e9a24e7b72.herokuapp.com/getHint', {
-  //       problem_statement: problem.title,
-  //       user_code: code,
-  //       hint_type: "optimization",
-  //       previous_hints: previousHints
-  //     });
-
-  //     const newHint = response.data.hint;
-  //     setPreviousHints([...previousHints, newHint]);
-  //   } catch (error) {
-  //     setPreviousHints([...previousHints, `Error: ${error.message}`]);
-  //   }
-  // };
-
-  const handleGetHint = () => {
-    console.log(problem.title, code, previousHints)
-    // getHint(code);
-    console.log('get hint')
+  const handleGetHint = async () => {
+    try {
+      console.log(problem.title, code, previousHints)
+      const response = await axios.post('https://leetcode-ai-b8e9a24e7b72.herokuapp.com/getHint', {
+        problem_statement: problem.title,
+        user_code: code,
+        hint_type: "optimization",
+        previous_hints: previousHints
+      });
+      const newHint = response.data.hint;
+      setPreviousHints([...previousHints, newHint]);
+    } catch (error) {
+      setPreviousHints([...previousHints, `Error: ${error.message}`]);
+    }
   };
 
   useEffect(() => {
@@ -80,6 +73,16 @@ const CodingPlatform = () => {
               Smart Hints
             </h2>
             <p className={styles.hintText}>Hints can be customized based on the problem details.</p>
+            <br/>
+            <button onClick={handleGetHint} className={styles.runButton}>Get Hint</button>
+            <br/>
+            <br/>
+            
+              {previousHints.map((hint, index) => (
+                <p key={index} className="hints-display__hint">
+                  <strong>Hint {index + 1}:</strong> {hint}
+                </p>
+              ))}
           </div>
         );
       case 'approach':
