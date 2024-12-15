@@ -44,9 +44,59 @@ const CodingPlatform = () => {
     }
   };
 
-  const handleMarkComplete = () => {
-    console.log('hahaha')
-  }
+  const handleMarkComplete = async () => {
+    if (problem.status == "solved") {
+      alert('Problem is marked as solved!');
+      return;
+    }
+  
+    if (!userNote.trim()) {
+      alert('Please add a note before marking the problem as complete.');
+      return;
+    }
+  
+    try {
+      // Update the `topics` database
+      const topicResponse = await fetch(`http://localhost:3001/topics/${topicid}`);
+      const topic = await topicResponse.json();
+  
+      const updatedProblems = topic.problems.map((p) => {
+        if (p.id === queid) {
+          return { ...p, status: 'solved' };
+        }
+        return p;
+      });
+  
+      await fetch(`http://localhost:3001/topics/${topicid}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...topic, problems: updatedProblems }),
+      });
+  
+      // Add the problem to the `notes` database
+      const noteData = {
+        problemName: problem.title,
+        approach: problem.approaches[0]?.name || 'Unknown Approach',
+        timeComplexity: problem.approaches[0]?.complexity?.time || 'N/A',
+        spaceComplexity: problem.approaches[0]?.complexity?.space || 'N/A',
+        logic: problem.approaches[0]?.logic || 'No logic provided',
+        difficulty: problem.difficulty,
+        userNote: userNote,
+      };
+  
+      await fetch('http://localhost:3001/notes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(noteData),
+      });
+  
+      alert('Problem marked as complete and added to notes!');
+    } catch (error) {
+      console.error('Error marking problem as complete:', error);
+      alert('There was an error marking the problem as complete. Please try again.');
+    }
+  };
+  
 
   useEffect(() => {
     const fetchProblem = async () => {
@@ -218,9 +268,10 @@ const CodingPlatform = () => {
 
             <button
               onClick={() => handleMarkComplete()}
-              className={styles.approachButton}
+              className={problem.status == "unsolved" ? styles.approachButton : styles.approachButtonSolved}
             >
-              Mark as Complete
+              {problem.status == "unsolved" ? "Mark as Complete" : "Completed!"}
+              
             </button>
           </div>
 

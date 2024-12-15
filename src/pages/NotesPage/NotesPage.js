@@ -25,11 +25,11 @@ const NotesPage = () => {
   const getDifficultyClass = (difficulty) => {
     const baseClass = styles.badge;
     switch(difficulty) {
-      case 'Easy':
+      case 'easy':
         return `${baseClass} ${styles.badgeEasy}`;
-      case 'Medium':
+      case 'medium':
         return `${baseClass} ${styles.badgeMedium}`;
-      case 'Hard':
+      case 'hard':
         return `${baseClass} ${styles.badgeHard}`;
       default:
         return baseClass;
