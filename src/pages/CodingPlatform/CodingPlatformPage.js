@@ -3,8 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChevronRight, Zap, Brain, Code2, Lightbulb } from 'lucide-react';
+import CodeMirror from '@uiw/react-codemirror';
+import { python } from '@codemirror/lang-python';
 import styles from './CodingPlatformPage.module.css';
 import { Navbar } from '../../components';
+import axios from 'axios'
 
 const CodingPlatform = () => {
   const { topicid, queid } = useParams();
@@ -12,6 +15,41 @@ const CodingPlatform = () => {
   const [activePanel, setActivePanel] = useState(null);
   const [userNote, setUserNote] = useState('');
   const [loading, setLoading] = useState(true);
+  const [code, setCode] = useState('def solution():\n    pass');
+  const [output, setOutput] = useState('Output text here...');
+  const [previousHints, setPreviousHints] = useState([]);
+
+  const handleRun = async () => {
+    try {
+      const response = await axios.post('https://leetcode-ai-b8e9a24e7b72.herokuapp.com/executeCode', { code });
+      setOutput(response.data.output);
+    } catch (error) {
+      setOutput(`Error: ${error.message}`);
+    }
+  };
+
+  // const getHint = async (code) => {
+  //   try {
+  //     console.log(problem.title, code, previousHints)
+  //     const response = await axios.post('https://leetcode-ai-b8e9a24e7b72.herokuapp.com/getHint', {
+  //       problem_statement: problem.title,
+  //       user_code: code,
+  //       hint_type: "optimization",
+  //       previous_hints: previousHints
+  //     });
+
+  //     const newHint = response.data.hint;
+  //     setPreviousHints([...previousHints, newHint]);
+  //   } catch (error) {
+  //     setPreviousHints([...previousHints, `Error: ${error.message}`]);
+  //   }
+  // };
+
+  const handleGetHint = () => {
+    console.log(problem.title, code, previousHints)
+    // getHint(code);
+    console.log('get hint')
+  };
 
   useEffect(() => {
     const fetchProblem = async () => {
@@ -175,10 +213,26 @@ const CodingPlatform = () => {
           <div className={styles.editorSection}>
             <div className={styles.editorHeader}>
               <h2 className={styles.editorTitle}>Python Solution</h2>
-              <button className={styles.runButton}>Run Code</button>
+              <button onClick={handleRun} className={styles.runButton}>Run Code</button>
             </div>
-            <textarea className={styles.codeArea} placeholder="Write your code here..."></textarea>
+
+            <CodeMirror
+              value={code}
+              height="100%"
+              extensions={[python()]}
+              onChange={(value) => setCode(value)}
+              placeholder="Write your Python code here..."
+              className={styles.codeArea}
+            />
+
+            {/* <textarea placeholder="Write your code here..."></textarea> */}
             <div className={styles.editorFooter}>
+
+              <div className={styles.outputSection}>
+                <h3>Output Console:</h3>
+                <pre className={styles.outputText}>{output}</pre>
+              </div>
+              
               <div className={styles.notesSection}>
                 <h3>Notes:</h3>
                 <textarea

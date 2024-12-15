@@ -142,11 +142,9 @@
 .codeArea {
   flex: 1;
   width: 100%;
-  padding: 1rem;
   background-color: rgb(248, 250, 252);
   font-family: monospace;
   font-size: 0.875rem;
-  border: none;
   resize: none;
 }
 
@@ -183,6 +181,31 @@
   outline: none;
   border-color: rgb(139, 92, 246);
 }
+
+/* Output Console */
+
+.outputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.outputSection h3 {
+  font-weight: 500;
+  color: rgb(30, 41, 59);
+}
+
+.outputText {
+  font-family: monospace;
+  color: #333;
+  white-space: pre-wrap;
+  background-color: rgb(250, 252, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
 
 /* Info Panel Styles */
 .infoPanel {
